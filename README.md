@@ -24,15 +24,17 @@ Open a browser and navigate to http://localhost:8000/ to access the site
 
 ## Screenshots
 
+<p float="left">
+  <img src="/example-images/home.png" width="50%" />
+  <img src="/example-images/home2.png" width="50%" /> 
+</p>
 <p float="left"">
-  <img src="/example-images/home.png" width="33%" />
-  <img src="/example-images/home2.png" width="33%" /> 
-  <img src="/example-images/login.png" width="33%" />
+  <img src="/example-images/login.png" width="50%" />
+  <img src="/example-images/prof.png" width="50%" /> 
 </p>
 <p float="left">
-  <img src="/example-images/prof.png" width="33%" />
-  <img src="/example-images/create-ar.png" width="33%" /> 
-  <img src="/example-images/article.png" width="33%" />
+  <img src="/example-images/create-ar.png" width="50%" /> 
+  <img src="/example-images/article.png" width="50%" />
 </p>
 
 
