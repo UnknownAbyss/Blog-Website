@@ -1,0 +1,26 @@
+{% extends 'basetemp.html' %}
+
+{% block content %}
+<h1 class="page-title" style="text-align: center; margin-left: 0px;padding-top:50px;">Sign in</h1>
+<div class="form-temp">
+<form method="post" action="{% url 'accounts:signin' %}">
+	{% csrf_token %}
+	{% for field in form %}
+		<p class="flexitem">
+			<h1 style="margin-bottom: 2px;">{{ field.label_tag }}</h1>
+			{{ field }}
+			{% if field.help_text %}
+				<h4 style="color: grey; padding: 2px;">{{ field.help_text }}</h4>
+			{% endif %}
+			{% for error in field.errors %}
+				<p style="color: red">{{ error }}</p>
+			{% endfor %}
+		</p>
+	{% endfor %}
+	{% if request.GET.next %}
+	<input type="hidden" name="next" value="{{ request.GET.next }}">
+	{% endif %}
+	<input type="submit" value="Login">	
+</form>
+</div>
+{% endblock %}

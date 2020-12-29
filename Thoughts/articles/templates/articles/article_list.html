@@ -1,0 +1,31 @@
+{% extends 'basetemp.html' %}
+
+
+
+{% block content %}
+	<div class="featured">
+		<div class="article-feat">
+			<img src="{{ feat.media.url }}" class="feat-image">
+			<div class="feat-text">	
+				<h1 style="mix-blend-mode:difference;color: #FFF; font-family: montserrat;">{{ feat.title }}</h1>
+			</div>
+		</div>		
+	</div>
+	<h1 class="page-title">Discover</h1>
+	<div class="articles-wrapper">
+		{% for article in articles_list %}
+		<a href="{% url 'articles:detail' slug=article.slug %}">
+			<div class="article-preview">
+				<div class="top-pad">	
+					<h2 >
+						{{article.title}}
+					</h2>
+					<p style="margin:2px;">made by {{article.author.first_name}} on {{article.date}}</p>
+					<p>{{article.preview}}</p>
+				</div>
+				<img src="{{ article.media.url }}">
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+{% endblock %}

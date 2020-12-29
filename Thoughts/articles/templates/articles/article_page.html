@@ -1,0 +1,19 @@
+{% extends 'basetemp.html' %}
+
+
+{% block content %}
+<div class="article-details">
+	<div class="a-page">
+		<img src="{{ article.media.url }}">
+		<div class="text-a">
+			<h1>{{ article.title }}</h1>
+			<p style="margin-bottom: 3px;font-family: arial; font-size: 200%">{{ article.upvote_nums }} Likes</p>
+			<a href="{% url 'articles:upvote' slug=article.slug %}">
+				{{ vote }}
+			</a><br><br>
+			<p>By {{ article.author }} on {{ article.date }}</p>
+			<p>{{ article.body }}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

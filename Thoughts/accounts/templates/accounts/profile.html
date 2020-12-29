@@ -1,0 +1,49 @@
+{% extends 'basetemp.html' %}
+
+
+
+{% block content %}
+<div class="profile">
+	<h1 class="page-title">
+		Profile page
+	</h1>
+	<div style="margin-left: 8vw; font-family: Montserrat;border-left: 4px #E55 solid;">
+		<div class="row-grid low-padding">
+			<h2>Username</h2>
+			<p>{{ user.username }}</p>
+		</div>
+		<div class="row-grid low-padding" style="background-color:#EEE;">
+			<h2>Name</h2>
+			<p>{{ user.first_name }} {{ user.last_name }}</p>
+		</div>
+		<div class="row-grid low-padding">
+			<h2>E-mail</h2>
+			<p>{{ user.email }}</p>
+		</div>
+	</div>
+	<br>
+	<h2 class="page-title">
+		Your Articles		
+	</h2>
+	<div style="margin: 50px;">
+		{% for article in my_articles %}
+			<a href="{% url 'articles:detail' slug=article.slug %}">
+				<div class="article-preview">
+					<div class="top-pad">	
+						<h2>
+							{{article.title}}
+						</h2>
+						<p>{{article.preview}}</p>
+						<p>{{article.date}}</p>
+						<p> made by {{article.author.first_name}}</p>
+					</div>
+					<img src="{{ article.media.url }}">
+				</div>
+			</a>
+		{% empty %}
+		Bhai article banao
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

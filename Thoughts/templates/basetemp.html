@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Thoughts</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
+</head>
+<body>
+	<header class="navbar">
+		<div class='logo'>
+			<a href="{% url 'articles:list' %}">
+				<h1 class="heading">Thoughts</h1>
+				<h5 class="slogan">A resting place for your mind</h5>
+			</a>
+		</div>
+		<nav class="right">
+			<ul>
+				{% if user.is_authenticated %}
+				<li>
+					<a href="{% url 'accounts:logout' %}">Logout</a>
+				</li>
+				<li>
+					<a href="{% url 'articles:create' %}">Create article</a>
+				</li>
+				<li>
+					<a href="{% url 'accounts:profile' %}">{{ user.first_name }}</a>
+				</li>
+				{% else %}
+				<li>
+					<a href="{% url 'accounts:signup' %}">Register</a>
+				</li>
+				<li>
+					<a href="{% url 'accounts:signin' %}">Login</a>
+				</li>
+				{% endif %}
+			</ul>
+		</nav>
+	</header>
+	<div class='base'>
+		{% block content %}
+		{% endblock%}
+	</div>
+</body>
+</html>
